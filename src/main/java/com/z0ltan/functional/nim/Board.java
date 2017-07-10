@@ -3,6 +3,14 @@ package com.z0ltan.functional.nim;
 import java.util.List;
 import java.util.stream.Stream;
 
+/**
+ * This represents the Nim Board. Java doesn't
+ * have type aliases, so define a new class that
+ * wraps the Integer list representing the board.
+ * 
+ * @author z0ltan
+ *
+ */
 public class Board {
 	private List<Integer> board;
 

@@ -13,6 +13,13 @@ import java.util.stream.Collector;
 
 import com.z0ltan.functional.nim.Board;
 
+/**
+ * Custom Collector implementation to collect the results into 
+ * an instance of the Board class, not a Collection.
+ * 
+ * @author z0ltan
+ *
+ */
 public class BoardCollector {
 	public static Collector<Integer, List<Integer>, Board> toBoard() {
 		return new BoardCollectorImpl();
@@ -44,6 +51,8 @@ public class BoardCollector {
 
 		@Override
 		public Set<java.util.stream.Collector.Characteristics> characteristics() {
+			// this is the best choice available from amongst the options
+			// if set to IDENTITY_FINISH, a wonderful ClassCastException ensues
 			return Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.CONCURRENT));
 		}
 	}

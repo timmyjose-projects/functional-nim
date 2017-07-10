@@ -5,13 +5,13 @@ import java.util.stream.IntStream;
 
 import com.z0ltan.functional.nim.collectors.BoardCollector;
 
+/**
+ * No global state allowed!
+ * 
+ * @author z0ltan
+ *
+ */
 public class Nim {
-	static Scanner in;
-
-	static {
-		in = new Scanner(System.in);
-	}
-
 	// get the next player
 	public static int next(int player) {
 		return player == 1 ? 2 : 1;
@@ -54,7 +54,8 @@ public class Nim {
 	// get a digit from stdin
 	public static int getDigit(final Scanner in, final String prompt) {
 		System.out.print(prompt);
-
+		System.out.flush();
+		
 		String c = in.nextLine();
 		// System.out.println():
 		if (isDigit(c)) {
@@ -65,6 +66,8 @@ public class Nim {
 		}
 	}
 
+	// these helper functions are strictly not required,
+	// but they are used to maintain the Functional spirit!
 	private static boolean isDigit(String s) {
 		if (s.length() == 1) {
 			return s.charAt(0) - '0' >= 0 && s.charAt(0) - '0' <= 9;
@@ -78,7 +81,7 @@ public class Nim {
 	}
 
 	// the main game loop
-	public static void play(Board board, int player) {
+	public static void play(final Scanner in, Board board, int player) {
 		putBoard(board);
 
 		if (finished(board)) {
@@ -90,12 +93,11 @@ public class Nim {
 			int num = getDigit(in, "Enter the number of stars to remove: ");
 
 			if (valid(board, row, num)) {
-				play(move(board, row, num), next(player));
+				play(in, move(board, row, num), next(player));
 			} else {
 				System.err.printf("ERROR: invalid move!\n");
-				play(board, player);
+				play(in, board, player);
 			}
 		}
 	}
-
 }
