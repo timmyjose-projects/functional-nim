@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/timmyjose/functional-nim.svg?branch=master)](https://travis-ci.org/timmyjose/functional-nim)
+
 This is a simple implementation of the `Nim` game in a functional style in Java (8 and above).
 
 The inspiration for this is the beautiful implementation in Haskell by Professor Graham Hutton in his
