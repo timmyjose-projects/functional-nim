@@ -30,7 +30,10 @@ or
 
 ## Demo
 
+Using `mvn clean && mvn compile`:
+
 ```
+
 Macushla:functional-nim z0ltan$ mvn exec:java -Dexec.mainClass=com.z0ltan.functional.nim.App
 [INFO] Scanning for projects...
 [INFO]
@@ -110,5 +113,61 @@ Player 2 wins
 [INFO] Finished at: 2017-07-11T00:32:31+05:30
 [INFO] Final Memory: 9M/32M
 [INFO] ------------------------------------------------------------------------
+
+```
+
+Using `mvn package`:
+
+```
+
+Macushla:functional-nim z0ltan$ java -jar target/functional-nim-1.0-SNAPSHOT.jar
+1: * * * * *
+2: * * * *
+3: * * *
+4: * *
+5: *
+Player 1 Enter a row number: 1
+Enter the number of stars to remove: 5
+1:
+2: * * * *
+3: * * *
+4: * *
+5: *
+Player 2 Enter a row number: 2
+Enter the number of stars to remove: 4
+1:
+2:
+3: * * *
+4: * *
+5: *
+Player 1 Enter a row number: 3
+Enter the number of stars to remove: 2
+1:
+2:
+3: *
+4: * *
+5: *
+Player 2 Enter a row number: 3
+Enter the number of stars to remove: 1
+1:
+2:
+3:
+4: * *
+5: *
+Player 1 Enter a row number: 4
+Enter the number of stars to remove: 2
+1:
+2:
+3:
+4:
+5: *
+Player 2 Enter a row number: 5
+Enter the number of stars to remove: 1
+1:
+2:
+3:
+4:
+5:
+Player 2 wins
 
 ```
