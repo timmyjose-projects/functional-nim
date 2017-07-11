@@ -1,5 +1,6 @@
 package com.z0ltan.functional.nim;
 
+import java.util.Scanner;
 import java.util.stream.IntStream;
 
 import com.z0ltan.functional.nim.collectors.BoardCollector;
